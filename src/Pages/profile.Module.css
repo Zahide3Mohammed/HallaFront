@@ -1,0 +1,236 @@
+
+.content2 {
+  display: flex;
+  gap: 20px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+ 
+}
+.main {
+  flex: 1;
+}
+.cover {
+  position: relative;
+  border: none;
+}
+.cover img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.avatar {
+  position: absolute;
+  bottom: 20px;border: none;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+/* صورة البروفايل */
+.avatar img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 4px solid white;
+  display: block;
+  margin: auto;
+}
+
+/* زر update */
+.update {
+  margin-top: -20px;
+  margin-left: 60px;font-weight: 900;
+}
+
+
+.update label {
+  padding: 2px 7px;
+  border-radius: 80%;border: 2px solid white;
+  color: black;
+  cursor: pointer;
+  font-size: 20px;
+
+  
+}
+
+
+
+.user-info {
+  margin-top: 50px;
+  padding-left: 20px;
+  text-align: center;
+}
+
+.tabs button {
+  margin: 10px;
+  padding: 8px 15px;
+  border-radius: 20px;
+  border: none;
+  background: #ddd;
+}
+
+.tabs .active {
+  background: black;
+  color: white;
+  
+}
+
+.posts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+background: white;
+  border-radius: 15px;
+  box-shadow: 0 20px 35px rgba(0,0,0,0.08);
+}
+
+.post {
+  background: white;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.post img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.sidebar2 {
+  width: 260px;
+  height: 100%;
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.sidebar2 h3 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.metric {
+  margin-bottom: 15px;
+}
+
+.metric span {
+  font-size: 14px;
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* الخلفية */
+.bar {
+  width: 100%;
+  height: 8px;
+  background: #eee;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* التقدم */
+.fill {
+  height: 100%;
+  
+  border-radius: 10px;
+  transition: 0.5s;
+}
+/* ========================= */
+/* Tablet */
+/* ========================= */
+
+@media (max-width: 992px) {
+
+  .content2 {
+    flex-direction: column;
+  }
+
+  .sidebar2 {
+    width: 100%;
+  }
+
+  .posts {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+
+/* ========================= */
+/* Mobile */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+  .content2 {
+    flex-direction: column;
+    gap: 15px;overflow-x: hidden;
+    padding: 10px;
+  }
+
+  .cover img {
+    height: 160px;
+  }
+
+  .avatar img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .update {
+    margin-left: 45px;
+    font-size: 14px;
+  }
+
+  .user-info {
+    margin-top: 40px;
+    padding-left: 10px;
+  }
+
+  .tabs button {
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+
+  .posts {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .sidebar2 {
+    width: 100%;
+    padding: 15px;
+  }
+
+}
+
+
+/* ========================= */
+/* Small mobile */
+/* ========================= */
+
+@media (max-width: 480px) {
+
+  .cover img {
+    height: 140px;
+  }
+
+  .avatar img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .update {
+    margin-left: 35px;
+    font-size: 13px;
+  }
+
+  .tabs button {
+    padding: 5px 10px;
+    font-size: 13px;
+  }
+
+}

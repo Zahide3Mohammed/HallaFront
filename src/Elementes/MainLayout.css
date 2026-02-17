@@ -1,0 +1,148 @@
+/* --- 1. Global Reset & Variables --- */
+:root {
+  --header-height: 60px;
+  --sidebar-width-closed: 50px;
+  --sidebar-width-open: 240px;
+  --bg-dark: #ffffff;
+  --bg-sidebar: #ffffff;
+  --text-gray: black;
+  --transition-speed: 0.35s;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* --- 2. Main Layout Container --- */
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* --- 3. Top Header Styling --- */
+.top-navbar {
+  height: var(--header-height);
+  background-color: var(--bg-dark);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 25px;
+  color: #111827;
+  z-index: 1000;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.user-profile-mini img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent-blue);
+}
+
+.header-links {
+  display: flex;
+  gap: 30px;
+}
+
+.header-links a {
+  color: var(--text-gray);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.header-links a:hover, 
+.header-links a.active {
+  color: #111827;
+}
+
+/* --- 4. Sidebar & Body Wrapper --- */
+.layout-body {
+  display: flex;
+  flex: 1;
+  height: calc(100vh - var(--header-height));
+}
+
+/* Sidebar Logic (The Hover Part) */
+.side-navbar {
+  width: var(--sidebar-width-closed);
+  background-color: var(--bg-sidebar);
+  transition: width var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;z-index: 1000;
+  display: flex;
+  flex-direction: column;position: fixed;height: 100dvh;
+  padding-top: 15px;
+  border-right: 1px solid #e5e7eb;
+}
+
+/* Expansion on Hover */
+.side-navbar:hover {
+  width: var(--sidebar-width-open);
+}
+
+/* Sidebar Items */
+.nav-item {
+  display: flex;
+  align-items: center;
+  padding: 14px 12px;
+  color: var(--text-gray);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap; /* Kat-hmi l-ktba mat-hbet l-teht */
+}
+
+.nav-item:hover {
+  background-color: #262626;
+  color: #fff;
+}
+
+/* Styling for React Router Active Link */
+.nav-item.active {
+  color: var(--accent-blue);
+  background-color: rgba(59, 130, 246, 0.1);
+  border-left: 4px solid var(--accent-blue);
+}
+
+.icon {
+  font-size: 20px;
+  min-width: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Text Labels (Hidden by default) */
+.label {
+  margin-left: 20px;
+  opacity: 0;
+  font-size: 15px;
+  transition: opacity 0.2s ease;
+}
+
+/* Show Labels when Sidebar is hovered */
+.side-navbar:hover .label {
+  opacity: 1;
+}
+
+/* --- 5. Main Content Area --- */
+.main-content {
+ display: flex;margin-left: 50px;
+  background-color: #f3f4f6;overflow-x: hidden;
+  padding: 10px;
+}
+
+/* Optional: Custom Scrollbar for better look */
+.main-content::-webkit-scrollbar {
+  width: 6px;
+}
+.main-content::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+.icon-click{
+    border-radius: 12px ;
+    padding: 05px 30px;
+}
