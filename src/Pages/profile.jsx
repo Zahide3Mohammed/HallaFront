@@ -28,7 +28,7 @@ export default function Profile(){
           <div className="cover">
             <img src={ress.image} />
             <div className="avatar">
-              <img src="https://randomuser.me/api/portraits/men/32.jpg" />
+              <img src={`http://localhost:8000/storage/${user?.photo}`} />
               <div className="update">
                   <label htmlFor="photo" style={{backgroundColor:ress.name}}>+</label>
                   <input id="photo" name="photo" type="file" hidden onChange={(e) => setupPhoto(e.target.files[0])}/>

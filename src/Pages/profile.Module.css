@@ -15,10 +15,10 @@
   border: none;
 }
 .cover img {
-  width: 100%;
+  width: 100%;padding: 10px;
   height: 200px;
   object-fit: cover;
-  border-radius: 15px;
+  border-radius: 20px;
 }
 
 .avatar {

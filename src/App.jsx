@@ -8,6 +8,9 @@ import AskTest from "./Composants/Test/asktest";
 import Questions from "./Composants/Test/Questions";
 import Profile from "./Pages/profile";
 import MainLayout from "./Elementes/MainLayout";
+import Settings from "./Composants/sideBarrePages/settings";
+import Security from "./Composants/sideBarrePages/security";
+import Logout from "./Composants/sideBarrePages/logout";
 
 
 export default function App() {
@@ -21,7 +24,9 @@ export default function App() {
       <Route path="/Questions" element={<ProtectedRoute ><Questions /></ProtectedRoute>} />
             <Route element={<MainLayout />}>
               <Route path="/Profile" element={<ProtectedRoute ><Profile /></ProtectedRoute>} />
-              <Route path="/Home" element={<ProtectedRoute ><Home /></ProtectedRoute>} />
+              <Route path="/Settings" element={<ProtectedRoute ><Settings /></ProtectedRoute>} />
+              <Route path="/Security" element={<ProtectedRoute ><Security /></ProtectedRoute>} />
+              <Route path="/Logout" element={<ProtectedRoute ><Logout /></ProtectedRoute>} />
             </Route>
 
       

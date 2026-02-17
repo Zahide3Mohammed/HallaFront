@@ -1,8 +1,11 @@
-import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import './MainLayout.css';
+import { useLanguage } from './LanguageContext';
+import { translationLayout } from './translations/translationsLayout';
 
 const MainLayout = () => {
+  const { language } = useLanguage();
+  const t = translationLayout[language]
   return (
     <div className="dashboard-container">
       {/* --- TOP HEADER --- */}
@@ -23,19 +26,19 @@ const MainLayout = () => {
       <div className="layout-body">
         {/* --- SIDEBAR (Hoverable) --- */}
         <aside className="side-navbar">
-          <NavLink to="/" className="nav-item">
-            <span className="icon">⊞</span>
-            <span className="label">Dashboard</span>
-          </NavLink>
-          
-          <NavLink to="/settings" className="nav-item">
+          <NavLink to="/Settings" className="nav-item">
             <span className="icon">⚙</span>
-            <span className="label">Settings</span>
+            <span className="label">{t.settings}</span>
           </NavLink>
           
-          <NavLink to="/security" className="nav-item">
+          <NavLink to="/Security" className="nav-item">
             <span className="icon">🛡</span>
             <span className="label">Security</span>
+          </NavLink>
+          
+          <NavLink to="/Logout" className="nav-item">
+            <span className="icon">⎘</span>
+            <span className="label">Logout</span>
           </NavLink>
         </aside>
 

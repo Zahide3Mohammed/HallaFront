@@ -4,7 +4,7 @@ import './login.Module.css';
 import { useLanguage } from '../Elementes/LanguageContext';
 import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
-import { translationsLogin } from '../Elementes/translationsLogin';
+import { translationsLogin } from '../Elementes/translations/translationsLogin';
 
 const image = ["./chta.png"];
 
@@ -70,8 +70,21 @@ export default function Login() {
     let newErrors = {};
     if (!formData.nom.trim()) newErrors.nom = t.errorNom || `${t.errnom}`;
     if (!formData.prenom.trim()) newErrors.prenom = t.errorPrenom || `${t.errprenom}`;
-    if (formData.age < 18) newErrors.age18 = `${t.errage18}`;
-    if (!formData.age) newErrors.age = `${t.errage}`;
+    //VALIDATION AGE
+    if (!formData.age) {
+    newErrors.age = `${t.errage}`;
+    } else {
+      const birthDate = new Date(formData.age); 
+      const today = new Date();
+      let age = today.getFullYear() - birthDate.getFullYear();
+      const monthDiff = today.getMonth() - birthDate.getMonth();
+      if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+        age--; 
+      }
+      if (age < 18) {
+        newErrors.age18 = `${t.errage18}`;
+      }
+    }
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {newErrors.email = `${t.erremail}`;}
     else{
@@ -188,7 +201,7 @@ export default function Login() {
             </div>
             <div className="input-row">
               <div>
-                <input type="number" name="age" placeholder={t.inp3} alt='hdd'
+                <input type="date" name="age" placeholder={t.inp3} alt='hdd'
               className={errors.age?'input-error':''} onChange={handleChange} />
               {errors.age && <span className="error-msg">{errors.age}</span>}<br />
               {errors.age18 && <span className="error-msg">{errors.age18}</span>}

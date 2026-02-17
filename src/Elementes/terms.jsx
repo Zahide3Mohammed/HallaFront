@@ -2,9 +2,9 @@ import { useState } from "react";
 import "./TermsJourney.Module.css";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../Elementes/LanguageContext.jsx";
-import { translationsHome } from "../Elementes/translationsHome.js";
 import Header from "../Elementes/header.jsx";
 import Footer from "../Elementes/footer.jsx";
+import { translationsHome } from "./translations/translationsHome.js";
 
 const termsSteps = [
   {

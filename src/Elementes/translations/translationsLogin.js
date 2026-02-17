@@ -28,7 +28,7 @@ export const translationsLogin = {
     inppass:"Password",
     nesslwl:"I agree with",nesstani:"Terms & Conditions",creepass:"Create a password",
     placepass:"Password",placepass2:"Repeat the Password",  
-    signinbtn:"Loading...",signinbtn2:"Log in to the Dashboard"
+    signinbtn:"Loading...",signinbtn2:"Log in to the Dashboard",
     },
 
 
@@ -62,7 +62,7 @@ export const translationsLogin = {
     signinbtn:"Chargement...",signinbtn2:"Connectez-vous au panneau de contrôle",
     nesslwl:"J'accepte",nesstani:"les conditions générales",
     creepass:"Créer un mot de passe",placepass:"Mot de Passe",placepass2:"Répétez le mot de passe",  
-
+        
     },
 
 

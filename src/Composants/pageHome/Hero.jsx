@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Hero.Module.css';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../Elementes/LanguageContext';
-import { translationsHome } from '../../Elementes/translationsHome';
-
-
+import { translationsHome } from '../../Elementes/translations/translationsHome';
 
 export default function PremiumHome() {
   const [currentSlide, setCurrentSlide] = useState(0);
