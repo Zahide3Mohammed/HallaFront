@@ -26,10 +26,9 @@ export default function App() {
               <Route path="/Profile" element={<ProtectedRoute ><Profile /></ProtectedRoute>} />
               <Route path="/Settings" element={<ProtectedRoute ><Settings /></ProtectedRoute>} />
               <Route path="/Security" element={<ProtectedRoute ><Security /></ProtectedRoute>} />
-              <Route path="/Logout" element={<ProtectedRoute ><Logout /></ProtectedRoute>} />
+             
             </Route>
-
-      
+             
     </Routes>
     </BrowserRouter>  
   </>

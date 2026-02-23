@@ -1,4 +1,7 @@
 import { useAuth } from "../context/AuthContext";
+import { useLanguage } from "../Elementes/LanguageContext";
+import { translationsLayout } from "../Elementes/translations/translationsLayout";
+
 import "./Profile.Module.css"
 
 
@@ -8,16 +11,20 @@ export default function Profile(){
   //Social Influence=S_I
   //Adaptability=A
   const { user }=useAuth();
+  const { language } = useLanguage();
+    const t = translationsLayout[language]
+  
+
 
   const sidebarLinks = [
-     { name: "purple", image: "./images/purple-back.jpg" ,text:"I'm a blue personality; I love peace and order, I focus on details, I think carefully before making any decision, and I prefer honesty and quality" ,A_T:"60%",I_I:"40%",S_I:"80%",A:"30%" },
-    { name: "green", image: "./images/green-back.jpg",text:"I'm a blue personality; I love peace and order, I focus on details, I think carefully before making any decision, and I prefer honesty and quality" ,A_T:"60%",I_I:"40%",S_I:"80%",A:"30%" },
-    { name: "yellow", image: "./images/yellow-back.jpg",text:"I'm a blue personality; I love peace and order, I focus on details, I think carefully before making any decision, and I prefer honesty and quality" ,A_T:"60%",I_I:"40%",S_I:"80%",A:"30%"  },
-      { name: "red", image: "./images/red-back.jpg",text:"I'm a blue personality; I love peace and order, I focus on details, I think carefully before making any decision, and I prefer honesty and quality" ,A_T:"60%",I_I:"40%",S_I:"80%",A:"30%"  },
-        { name: "blue", image: "./images/blue-back.jpg",text:"I'm a blue personality; I love peace and order, I focus on details, I think carefully before making any decision, and I prefer honesty and quality" ,A_T:"60%",I_I:"40%",S_I:"80%",A:"30%" }
+     { name:`${t.name_purple}`,color: "purple", image: "./images/purple-back.jpg" ,text:`${t.text_purple}` ,A_T: "80%", I_I: "90%", S_I: "50%", A: "70%"},
+    { name:`${t.name_green}`,color: "green", image: "./images/green-back.jpg",text:`${t.text_green}`,A_T:"90%", I_I: "60%", S_I: "40%", A: "80%" },
+    { name:`${t.name_yellow}`,color: "yellow", image: "./images/yellow-back.jpg",text:`${t.text_yellow}` ,A_T:"50%", I_I:"80%", S_I: "90%", A:"70%"  },
+      { name:`${t.name_red}`,color:"red", image: "./images/red-back.jpg",text:`${t.text_red}`,A_T:"70%", I_I:"50%", S_I:"30%", A:"60%"  },
+      { name:`${t.name_blue}`,color:"blue",image: "./images/blue-back.jpg",text:`${t.text_blue}`,A_T: "60%", I_I: "40%", S_I:"80%", A:"70%" }
  
 ];
-    const ress=sidebarLinks.find((e)=>e.name===user.color);
+    const ress=sidebarLinks.find((e)=>e.color===user.color);
   return (
       <div className="profile-page" >
       <div className="content2" >
@@ -28,28 +35,29 @@ export default function Profile(){
           <div className="cover">
             <img src={ress.image} />
             <div className="avatar">
-              <img src={`http://localhost:8000/storage/${user?.photo}`} />
+            <img src={`http://localhost:8000/storage/${user?.photo}`}  />
+           
               <div className="update">
-                  <label htmlFor="photo" style={{backgroundColor:ress.name}}>+</label>
+                  <label htmlFor="photo" style={{backgroundColor:ress.color}}>+</label>
                   <input id="photo" name="photo" type="file" hidden onChange={(e) => setupPhoto(e.target.files[0])}/>
               </div>
             </div>
+          
           </div>
           {/* USER INFO */}
           <div className="user-info">
             <h2>{user?.nom} {user?.prenom}</h2>
-            <p> You are  : 
-              <span style={{color:'black',backgroundColor:ress.name,padding:'5px 10px',borderRadius:"12px",fontWeight:'900',margin:"5px"}}>
+            <p> {t.present} : 
+              <span style={{color:'black',backgroundColor:ress.color,padding:'5px 10px',borderRadius:"12px",fontWeight:'900',margin:"5px"}}>
                {ress.name}
               </span>
             </p>
-              <p style={{margin:'20px'}}>{sidebarLinks[3].text}</p>
+              <p style={{margin:'20px'}}>{ress.text}</p>
           </div>
           {/* TABS */}
           <div className="tabs">
             <button className="active" >Posts</button>
-            <button>Community</button>
-            <button>Courses</button>
+            
           </div>
 
           {/* POSTS */}
@@ -71,37 +79,40 @@ export default function Profile(){
 
         {/* RIGHT SIDEBAR */}
        <div className="sidebar2">
-  <h3>Task Metrics</h3>
+  <h3>{t.title}</h3>
 
   <div className="metric">
-    <span>Analytical Thinking</span>
+    <span>{t.A_T}</span>
     <div className="bar">
-      <div className="fill" style={{ width: ress.A_T ,backgroundColor:ress.name}}></div>
+      <div className="fill" style={{ width: ress.A_T ,backgroundColor:ress.color}}></div>
     </div>
   </div>
 
   <div className="metric">
-    <span>Innovative Ideas</span>
+    <span>{t.I_I}</span>
     <div className="bar">
-      <div className="fill" style={{ width: ress.I_I ,backgroundColor:ress.name}}></div>
+      <div className="fill" style={{ width: ress.I_I ,backgroundColor:ress.color}}></div>
     </div>
   </div>
 
   <div className="metric">
-    <span>Social Influence</span>
+    <span>{t.S_I}</span>
     <div className="bar">
-      <div className="fill" style={{ width: ress.S_I ,backgroundColor:ress.name}}></div>
+      <div className="fill" style={{ width: ress.S_I ,backgroundColor:ress.color}}></div>
     </div>
   </div>
 
   <div className="metric">
-    <span>Adaptability</span>
+    <span>{t.A}</span>
     <div className="bar">
-      <div className="fill" style={{ width: ress.A ,backgroundColor:ress.name}}></div>
+      <div className="fill" style={{ width: ress.A ,backgroundColor:ress.color}}></div>
     </div>
   </div>
+  
 </div>
+
       </div>
+      
     </div>
   );
 };

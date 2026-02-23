@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './login.Module.css';
 import { useLanguage } from '../Elementes/LanguageContext';
 import axios from 'axios';
@@ -9,6 +9,14 @@ import { translationsLogin } from '../Elementes/translations/translationsLogin';
 const image = ["./chta.png"];
 
 export default function Login() {
+  // parte logout
+const location = useLocation();
+useEffect(() => {
+  if (location.state?.signin) {
+    setStep(3);
+  }
+}, [location.state]);
+
 
   const { language } = useLanguage();
   const t = translationsLogin[language];
@@ -153,6 +161,7 @@ export default function Login() {
       const res = await axios.post("http://localhost:8000/api/register",data);
       if (res.data.token){
       loginContext(res.data.user, res.data.token);}
+      
       console.log("SUCCESS");
         navigate("/intro-test");
     } catch (err) {
@@ -307,6 +316,7 @@ export default function Login() {
           </form>
 
         )}
+         
 
       </div>
     </div>

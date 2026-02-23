@@ -333,4 +333,73 @@ input:focus {
 .eyeleft{
     right: 12px;
 }
+/* step 4 */
+.account-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+.card1 {
+  width: 100%;
+  background:white;
+  border-radius: 12px;
+  padding: 60px 30px ;
+  text-align: center;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.imageP img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+
+  margin: auto;
+}
+
+.username {
+  font-size: 22px;
+  margin-bottom: 25px;
+    margin-top: 10px;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 25px;
+  border: none;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.primary1 {
+    
+width: 400px;
+  background: rgb(231, 94, 94);
+  color: black;
+  font-weight: bold;
+}
+
+.secondary {
+width: 400px;
+  background: white;
+  border: 1px solid #ddd;
+  margin-top: 50px;
+}
+
+.meta {
+width: 400px;
+  background:rgb(111, 111, 244);
+  border: 1px solid #ddd;
+
+   
+}
+.btn{
+    width: 400px;
+ 
+}
 

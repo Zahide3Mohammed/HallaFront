@@ -1,18 +1,38 @@
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import './MainLayout.css';
 import { useLanguage } from './LanguageContext';
-import { translationLayout } from './translations/translationsLayout';
+import { translationsLayout } from './translations/translationsLayout';
+import { useAuth } from '../context/AuthContext';
+import axios from "axios";
 
 const MainLayout = () => {
-  const { language } = useLanguage();
-  const t = translationLayout[language]
+  const { language } = useLanguage()
+    const { user, logout }=useAuth();
+  const t = translationsLayout[language]
+   const navigate = useNavigate()
+   // logout 
+   const handleLogout = async () => {
+    try {
+      // optional: Laravel logout API
+      await axios.post("http://localhost:8000/api/logout", {}, {
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }
+      });
+    } catch(err){
+      console.log("logout error", err);
+    }
+
+   logout();
+    navigate("/login", { state: { signin: true } });
+  };
   return (
+    
+
     <div className="dashboard-container">
       {/* --- TOP HEADER --- */}
       <header className="top-navbar">
         <div className="user-profile-mini">
            <div className="avatar-placeholder">
-            <NavLink to="/Profile" ><img src="https://randomuser.me/api/portraits/men/32.jpg" /></NavLink>
+            <NavLink to="/Profile" ><img src={`http://localhost:8000/storage/${user?.photo}`}  /></NavLink>
            </div>
         </div>
         
@@ -33,12 +53,12 @@ const MainLayout = () => {
           
           <NavLink to="/Security" className="nav-item">
             <span className="icon">🛡</span>
-            <span className="label">Security</span>
+            <span className="label">{t.Security}</span>
           </NavLink>
-          
-          <NavLink to="/Logout" className="nav-item">
-            <span className="icon">⎘</span>
-            <span className="label">Logout</span>
+       
+           <NavLink to="#" onClick={handleLogout} className="nav-item">
+            <span className="icon">⎘ </span>
+            <span className="label">{t.Logout}</span>
           </NavLink>
         </aside>
 
