@@ -40,7 +40,8 @@ useEffect(() => {
     tel: '',
     password: '',
     confirmPassword: '',
-    photo: null
+    photo: null,
+    default_img:''
   });
   const [credentials, setCredentials] = useState({
   email: '',
@@ -161,7 +162,6 @@ useEffect(() => {
       const res = await axios.post("http://localhost:8000/api/register",data);
       if (res.data.token){
       loginContext(res.data.user, res.data.token);}
-      
       console.log("SUCCESS");
         navigate("/intro-test");
     } catch (err) {
@@ -237,7 +237,7 @@ useEffect(() => {
             {errors.tel && <span className="error-msg">{errors.tel}</span>}
             </div>
             <div className="file-upload-wrapper">
-              {preview && <div className="img-preview"><img src={preview} alt="preview" /></div>}
+              {preview && <div className="img-preview text-left "><img src={preview} alt="preview" /></div>}
               <label htmlFor="photo" className={`file-label-modern ${errors.photo?'label-error':''}`}>
                 <span>{formData.photo ? `${t.inpphoto2}` : `${t.inpphoto}`}</span>
               </label>
@@ -302,7 +302,7 @@ useEffect(() => {
                 )}
               </span>
             </div>
-
+                {errors.signin && <span className="error-msg">{errors.signin}</span>}
             <button className="submit-botona" disabled={loading}>
               {loading ? `${t.signinbtn}` : `${t.signinbtn2}`}
             </button>

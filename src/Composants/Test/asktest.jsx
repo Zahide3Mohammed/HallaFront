@@ -1,12 +1,16 @@
-import { useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import Features from './askfeatures';
 
 import './AskTest.css';
 import Header from '../../Elementes/header';
 import Footer from '../../Elementes/footer';
+import { useLanguage } from '../../Elementes/LanguageContext';
+import { translationsQuestions } from '../../Elementes/translations/translationsQuestions';
 
 const AskTest = () => {
     const navigate=useNavigate();
+    const { language }=useLanguage()
+    const t=translationsQuestions[language]
 
   const avatars = [
     "https://lh3.googleusercontent.com/aida-public/AB6AXuBYByi-YidsTxW7RFxvV7XgfbuL49E55Dr_73HAbfVfRdiNlIds4O3WaM3TiGAZ9hbnxO__WQ7iaw_mg4Vh8ZNntiRDnlWcMnlrjUDaIsfHsdj-Hs2VlWoyepw8eJuQ2jEdY7NIiOJKV3CF-PurnlBft23_KWKk-CJ0qGcJ16POQmXUSoyVZH7-zNYEvcg2XmRN-fLFEa4NUNTgxdsd6s-S9KsOrm6qxVeblzu8V4FuKj3v_IPjI1X0QVD0dr_bWtfsntzONxk0UQHm",
@@ -19,33 +23,33 @@ const AskTest = () => {
   return <>
     <Header />
     <section className="asktest-section">
-      <div className="asktest-container">
+      <div className={`asktest-container ${language==="ar"?"text-right":"text-left"}`}>
 
         {/* Left */}
         <div className="asktest-left">
 
-          <div className="badge">
-            <span className="material-symbols-outlined">auto_awesome</span>
-            Personal Growth
+          <div className="badge-ask">
+            <span className="material-symbols-outlined-ask">
+              {t.personalgro}
+            </span>
           </div>
 
           <h1 className="asktest-title">
-            Discover Your <br />
-            <span className="primary italic">Inner Potential</span>
+           {t.discover} <br />
+            <span className="primary italic">{t.discover2}</span>
           </h1>
 
           <p className="asktest-desc">
-            Unlock deep insights into your behavioral patterns, strengths,
-            and career path with our scientifically-backed personality assessment.
+            {t.descrAsk}
           </p>
 
           <div className="asktest-buttons">
-            <button className="btn-primary" onClick={()=>PassToTest()}>
-              Start Test Now </button>
+            <button className="btn-primary-ask" onClick={()=>PassToTest()}>
+             {t.startbtn} </button>
 
-            <button className="btn-secondary">
-              Maybe Later
-            </button>
+            <Link to="/Profile" className="btn-secondary">
+              {t.btn2}
+            </Link>
           </div>
 
           <div className="asktest-users">
@@ -59,13 +63,14 @@ const AskTest = () => {
               ))}
             </div>
             <p>
-              Join <strong>12,000+</strong> others this week
+              {t.join}
             </p>
           </div>
 
           <div className="asktest-time">
-            <span className="material-symbols-outlined">schedule</span>
-            Takes only 5 minutes to complete
+            <span className="material-symbols-outlined">
+              {t.timetest}
+            </span>
           </div>
 
         </div>

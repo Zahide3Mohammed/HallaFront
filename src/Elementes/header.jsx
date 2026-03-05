@@ -14,21 +14,21 @@ export default function Header() {
   }, []);
 
   return (
-    <div className="header-wrapper">
-      <header className={`floating-header ${isScrolled ? 'scrolled' : ''}`}>
-        <div className="header-container">
+    <div className="header-wrapperr">
+      <header className={`floating-headerr ${isScrolled ? 'scrolledr' : ''}`}>
+        <div className="header-containerr">
           
           
-          <div className="header-logo">
+          <div className="header-logor">
             <a href="/">Halla<span>Maghreb</span></a>
           </div>
 
           {/* Actions - Left Side */}
-          <div className="header-actions">
-            <a href="#contact" className="contact-link">اتصل بنا</a>
+          <div className="header-actionsr">
+            <a href="#contact" className="contact-linkr">اتصل بنا</a>
             <LanguageSelect />
             
-            <div className="burger-menu">
+            <div className="burger-menur">
               <div className="line"></div>
               <div className="line short"></div>
             </div>

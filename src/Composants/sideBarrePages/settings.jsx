@@ -4,7 +4,7 @@ import "./settings.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 
-export default function Settings() {
+export default function Settings2tghf() {
   const { token, logout } = useAuth();
   const navigate = useNavigate();
 
@@ -28,7 +28,7 @@ export default function Settings() {
       alert("Compte supprimé ✅");
 
     } catch (err) {
-      alert("Password incorrect ❌");
+      alert("Password incorrect ...❌");
     }
   };
 

@@ -7,8 +7,7 @@
   display: flex;
   min-height: 100vh;
   background: #f4f6f9;
-  padding: 40px;
-  gap: 25px;
+  gap: 10px;padding: 10px;
 }
 
 /* LEFT CONTENT */
@@ -132,4 +131,62 @@ button {
   .container {
     flex-direction: column;
   }
+}
+/* --- DARK MODE FOR THIS COMPONENT --- */
+
+/* 1. Page Background (L-khlafya l-kbira) */
+[data-theme='dark'] .container {
+    background: #0a0a0a !important; /* Black Deep */
+}
+
+/* 2. Content & Right Panel (L-wraqa l-bidin) */
+[data-theme='dark'] .content,
+[data-theme='dark'] .right {
+    background: #171717 !important; /* Dark Grey */
+    border: 1px solid #262626 !important; /* Border r9iqa */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* 3. Typography (L-ktaba) */
+[data-theme='dark'] .content h2,
+[data-theme='dark'] .right h3,
+[data-theme='dark'] .right h4,
+[data-theme='dark'] .content label {
+    color: #ededed !important; /* Off-white */
+}
+
+[data-theme='dark'] .content p,
+[data-theme='dark'] .right p {
+    color: #a3a3a3 !important; /* Muted grey */
+}
+
+/* 4. Form Inputs */
+[data-theme='dark'] .content input {
+    background: #262626 !important;
+    border: 1px solid #404040 !important;
+    color: #fff !important;
+}
+
+[data-theme='dark'] .content input:focus {
+    border-color: #3b82f6 !important; /* Blue glow */
+}
+
+/* 5. Buttons Adjustments */
+[data-theme='dark'] .cancel {
+    background: #262626 !important;
+    color: #ededed !important;
+    border: 1px solid #404040 !important;
+}
+
+[data-theme='dark'] .cancel:hover {
+    background: #333333 !important;
+}
+
+/* 6. Success & Danger Buttons (khllihom mch3lin chwiya f dark mode) */
+[data-theme='dark'] .right button {
+    opacity: 0.9;
+}
+
+[data-theme='dark'] .right button:hover {
+    opacity: 1;
 }

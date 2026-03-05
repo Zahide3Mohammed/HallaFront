@@ -71,7 +71,7 @@
   to { transform: translateX(-50%); } 
 }
 .hero-split-asymmetric {
-  width: 88%;z-index: 1000;margin: auto;
+  width: 88%;z-index: 500;margin: auto;
   min-height: 50vh;
   display: flex;
   align-items: center;

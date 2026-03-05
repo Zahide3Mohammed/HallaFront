@@ -24,7 +24,7 @@
   min-width: 300px;
 }
 
-.badge {
+.badge-ask {
   display: inline-flex;
   gap: 6px;
   background: rgba(249, 115, 22, 0.1);
@@ -67,7 +67,7 @@
   flex-wrap: wrap;
 }
 
-.btn-primary {
+.btn-primary-ask {
   background: var(--primary);
   color: white;
   border: none;
@@ -81,7 +81,7 @@
   transition: 0.3s;
 }
 
-.btn-primary:hover {
+.btn-primary-ask:hover {
   transform: translateY(-2px);
 }
 

@@ -8,7 +8,6 @@ import Header from "../Elementes/header";
 
 export default function Home(){
     return<>
-    <Header />
     <PremiumHome />
     <Cards />
     <Faq />

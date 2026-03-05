@@ -5,10 +5,14 @@ import Header from '../../Elementes/header';
 import Footer from '../../Elementes/footer';
 import { useAuth } from '../../context/AuthContext';
 import { useNavigate } from 'react-router';
+import { useLanguage } from '../../Elementes/LanguageContext';
+import { translationsQuestions } from '../../Elementes/translations/translationsQuestions';
 
 export default function Questions() {
   const [currentPage, setCurrentPage] = useState(0); 
   const questionsPerPage = 5;
+  const { language } = useLanguage();
+  const t = translationsQuestions[language];
   
   // 1. Kan-jibu l-user w l-function li kat-update l-context
   const { user, loginContext ,token} = useAuth(); 
@@ -19,21 +23,21 @@ export default function Questions() {
   const [loading, setLoading] = useState(false);
   
 const questions = [
-    { id: 1, text: "هل تفضل أن تكون أنت القائد في أي مجموعة بدلاً من أن ثقاد؟", color: "red", reselta: [-3, -2, -1, 0, 1, 2, 3] },
-    { id: 2, text: "هل تتجنب الدخول في نقاشات حادة أو صراعات وتفضل مسايرة الأمور", color: "green", reselta: [-3, -2, -1, 0, 1, 2, 3] },
-    { id: 3, text: "هل تشعر بالحيوية والنشاط عندما تكون وسط مجموعة كبيرة من الناس ؟", color: "yellow", reselta: [-3, -2, -1, 0, 1, 2, 3] },
-    { id: 4, text:" هل تهتم بالدقة والتفاصيل أكثر من سرعة الإنجاز", color: "blue", reselta: [-3, -2, -1, 0, 1, 2, 3] },
-    { id: 5, text: "هل تعتبر نفسك شخصاًمختلفاً أوفريداً ولا تحب التقليد ؟", color: "purple", reselta: [-3, -2, -1, 0, 1, 2, 3] },
-    { id: 6, text:"هل تتخذ قراراتك بسرعة وثقة حتى في المواقف الصعبة ؟", color: "red", reselta: [-3, -2, -1, 0, 1, 2, 3] },
-    { id: 7, text: "هل تفضل العمل ضمن فريق متعاون بدلاً من المنافسة الفردية", color: "green", reselta: [-3, -2, -1, 0, 1, 2, 3] },
-    { id: 8, text: "هل تفضل البدء بمشاريع جديدة ومبتكرة بدلاً من إنهاء المهام الروتينية ؟", color: "yellow", reselta: [-3, -2, -1, 0, 1, 2, 3] },
-    { id: 9, text:  "هل تزعجك الفوضى أو غياب الجدول الزمني في يومك ", color: "blue", reselta: [-3, -2, -1, 0, 1, 2, 3] },
-    { id: 10, text: "هل تنجذب للفنون الموسيقى الغامضة، أو القصص التي تحتوي على خیال واسع ؟", color: "purple", reselta: [-3, -2, -1, 0, 1, 2, 3] },
-     { id: 11, text:  "هل تعتبر أن القواعد والأنظمة وجدت لتطبق حرفياً ولا يجب تجاوزها تحت أي ظرف ؟", color: "blue", reselta: [-3, -2, -1, 0, 1, 2, 3] },
-    { id: 12, text:"هل تشعر بدافع قوي للمنافسة والفوز في أي تحد أو نقاش؟", color: "red", reselta: [-3, -2, -1, 0, 1, 2, 3] },
-    { id: 13, text: "هل تصف نفسك بأنك شخص عفوي وتتخذ قراراتك بناءً على حماسك ؟", color: "yellow", reselta: [-3, -2, -1, 0, 1, 2, 3] },
-    { id: 14, text: "هل تشعر بأن طاقتك تتجدد بمجرد التواجد في مكان مفتوح بحر، غابة جبل ؟", color: "green", reselta: [-3, -2, -1, 0, 1, 2, 3] },
-    { id: 15, text: "هل تميل للتفكير في معنى الحياة والغيبيات أكثر من الأمور اليومية", color: "purple", reselta: [-3, -2, -1, 0, 1, 2, 3] }
+    { id: 1, text: `${t.Q1}` , color: "red", reselta: [-3, -2, -1, 0, 1, 2, 3] },
+    { id: 2, text:  `${t.Q2}` , color: "green", reselta: [-3, -2, -1, 0, 1, 2, 3] },
+    { id: 3, text: `${t.Q3}`, color: "yellow", reselta: [-3, -2, -1, 0, 1, 2, 3] },
+    { id: 4, text:`${t.Q4}`, color: "blue", reselta: [-3, -2, -1, 0, 1, 2, 3] },
+    { id: 5, text:`${t.Q5}`, color: "purple", reselta: [-3, -2, -1, 0, 1, 2, 3] },
+    { id: 6, text:`${t.Q6}`, color: "red", reselta: [-3, -2, -1, 0, 1, 2, 3] },
+    { id: 7, text: `${t.Q7}`, color: "green", reselta: [-3, -2, -1, 0, 1, 2, 3] },
+    { id: 8, text:`${t.Q8}`, color: "yellow", reselta: [-3, -2, -1, 0, 1, 2, 3] },
+    { id: 9, text: `${t.Q9}`, color: "blue", reselta: [-3, -2, -1, 0, 1, 2, 3] },
+    { id: 10, text: `${t.Q10}`, color: "purple", reselta: [-3, -2, -1, 0, 1, 2, 3] },
+     { id: 11, text: `${t.Q11}`, color: "blue", reselta: [-3, -2, -1, 0, 1, 2, 3] },
+    { id: 12, text:`${t.Q12}`, color: "red", reselta: [-3, -2, -1, 0, 1, 2, 3] },
+    { id: 13, text: `${t.Q13}`, color: "yellow", reselta: [-3, -2, -1, 0, 1, 2, 3] },
+    { id: 14, text: `${t.Q14}`, color: "green", reselta: [-3, -2, -1, 0, 1, 2, 3] },
+    { id: 15, text: `${t.Q15}`, color: "purple", reselta: [-3, -2, -1, 0, 1, 2, 3] }
   ];
 
   const startIndex = currentPage * questionsPerPage;
@@ -99,11 +103,10 @@ const questions = [
   return (
     <>
       <Header />
-      <div className="max-w-4xl mx-auto p-8 bg-white text-right" dir="rtl">
-        <img src={user?.photo} width={100} alt="Logo" />
-        <h1>أهلاً {user?.nom || 'المستخدم'}</h1>
-        <h1 className="titre">اختبار شخصية مجاني</h1>
+      <div className="max-w-4xl mx-auto p-8 bg-white ">
+        
         <article className="steps"> 
+          <h1 style={{ flexShrink:"0 " }}>أهلاً {user?.nom || 'المستخدم'}</h1>
           <div className="card"><h1>الخطوة 1</h1><h3>أكمل الاختبار</h3></div> 
           <div className="card"><h1>الخطوة 2</h1><h3>النتائج</h3></div>
           <div className="card"><h1>الخطوة 3</h1><h3>تطوير الذات</h3></div> 
@@ -115,10 +118,10 @@ const questions = [
         </div>
 
         {currentQuestions.map((q) => (
-          <div key={q.id} className="qus">
-            <p className="text-xl text-center mb-6">{q.text}</p>
+          <div key={q.id} className={`qus ${language==="ar"?"text-right":"text-left"}`}>
+            <p className="text-xl">{q.text}</p>
             <div className="container-ijabat">
-              <span style={{color: 'red'}}>غير موافق</span>
+              <span style={{color: 'red',fontSize:"18px"}}>{t.non}</span>
               {q.reselta.map((val) => (
                 <button
                   key={val} className='buttijaba'
@@ -133,15 +136,15 @@ const questions = [
                   }}
                 />
               ))}
-              <span style={{color: 'green'}}>موافق</span>
+              <span style={{color: 'green',fontSize:"18px"}}>{t.oui}</span>
             </div>
           </div>
         ))}
 
         <div className="flex justify-between items-center mt-10">
-          {currentPage > 0 && <button onClick={prevStep} className="btn-back">السابق</button>}
+          {currentPage > 0 && <button onClick={prevStep} className="btn-back">{t.sabi9}</button>}
           <button onClick={nextStep} className="btnn" disabled={loading}>
-            {loading ? "جاري..." : (startIndex + questionsPerPage < questions.length ? "التالي" : "عرض النتائج")}
+            {loading ? `${t.jari}` : (startIndex + questionsPerPage < questions.length ? `${t.tali}` : `${t.nata2ij}`)}
           </button>
         </div>
       </div>

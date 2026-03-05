@@ -3,9 +3,12 @@ import './Hero.Module.css';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../Elementes/LanguageContext';
 import { translationsHome } from '../../Elementes/translations/translationsHome';
+import PricingModal from './PricingModal';
+import Header from '../../Elementes/header';
 
 export default function PremiumHome() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [showPricing, setShowPricing] = useState(false);
    const bgSlides = [
     "/images/img1.png", 
     "/images/img2.jpg",
@@ -25,6 +28,7 @@ export default function PremiumHome() {
   }, [bgSlides.length]);
 
   return (<>
+  <Header />
     <div className="premium-page-container">
         <div className="marquee">
                 <div className="marquee-track">
@@ -95,7 +99,8 @@ export default function PremiumHome() {
                   <p className="hero-description">{t.paradesc}</p>
                   
                   <div className="hero-actions">
-                    <Link to="/login" className="cta-primary">{t.start}</Link>
+                    <button onClick={()=>setShowPricing(true)} className="cta-primary">{t.start}</button>
+                    <PricingModal isOpen={showPricing} onClose={() => setShowPricing(false)} />
                     <div className="user-proof">
                       <div className="avatar-stack">
                         <img src={`https://i.pravatar.cc/100?u=${Math.floor(Math.random() * 200)}`} alt="user" />

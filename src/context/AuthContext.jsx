@@ -1,13 +1,14 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(sessionStorage.getItem("token"));
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
   const [user, setUser] = useState(
     JSON.parse(sessionStorage.getItem("user"))
   );
-
+  
   const loginContext = (userData, newToken) => {
     sessionStorage.setItem("token", newToken);
     sessionStorage.setItem("user", JSON.stringify(userData));
